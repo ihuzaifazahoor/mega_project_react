@@ -1,0 +1,50 @@
+{
+    "news": [
+        {
+            "id": 1,
+            "username": "Huzaifa Zahoor",
+            "content": "I found a VERY RARE Virginia diamond! Only 4 other diamonds have been found in state history! The last diamond was found over 100 YEARS ago (1913)!",
+            "image": "https://preview.redd.it/9wxogee3dl9a1.jpg?width=640&crop=smart&auto=webp&s=e8182676a86dd193a4eade45611bb2fcfe070f02",
+            "link": "https://www.reddit.com/r/MadeMeSmile/comments/10125ji/i_found_a_very_rare_virginia_diamond_only_4_other/",
+            "likes": 23
+        },
+        {
+            "id": 2,
+            "username": "Usama Zahoor",
+            "content": "Proton celebrated her Sweet Sixteen today!",
+            "image": "https://i.redd.it/dkdtgyckwk9a1.jpg",
+            "link": "https://www.reddit.com/r/aww/comments/10108sv/proton_celebrated_her_sweet_sixteen_today/",
+            "likes": 230
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "content": "Fake comment",
+            "username": "Fake author",
+            "likes": 323,
+            "news_id": 1
+        },
+        {
+            "id": 2,
+            "content": "Fake comment 2",
+            "username": "Fake author 2",
+            "likes": 54,
+            "news_id": 1
+        },
+        {
+            "id": 3,
+            "content": "Fake comment 3",
+            "username": "Fake author 3",
+            "likes": 100,
+            "news_id": 2
+        },
+        {
+            "id": 4,
+            "content": "Fake comment 4",
+            "username": "Fake author 4",
+            "likes": 1,
+            "news_id": 2
+        }
+    ]
+}
