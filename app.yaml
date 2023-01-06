@@ -1,5 +1,5 @@
 runtime: nodejs18 # or another supported version
-service: react-app-deployment-github-actions
+service: react-reddit-huzaifa
 handlers:
   # Serve all static files with url ending with a file extension
   - url: /(.*\..+)$
