@@ -1,33 +1,38 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import setToken from "./Helper";
 export default function Login() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [emailText, setEmailText] = useState(null);
-  const [passwordText, setPasswordText] = useState(null);
+  const [validate, setValidate] = useState(false);
   function validateForm() {
-    return email.length > 0 && email.includes("@") && password.length > 0;
+    return username.length > 0 && password.length > 0;
   }
-  function handleSubmit(event) {
+  const navigate = useNavigate();
+  async function handleSubmit(event) {
     event.preventDefault();
+    await setToken(username, password).then((res) => {
+      if (res.ok) {
+        localStorage.setItem("authToken", res.body.token);
+        navigate("/");
+      }
+      setValidate(true);
+    });
   }
   return (
     <form className="row m-5 justify-content-center" onSubmit={handleSubmit}>
       <div className="col-6">
         <div className="form-outline mb-3">
           <label className="form-label" htmlFor="form2Example1">
-            Email Address:
+            Username:
           </label>
           <input
-            type="email"
+            type="text"
             id="form2Example1"
             className="form-control"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
-          <div className="form-text text-danger">
-            {emailText && { emailText }}
-          </div>
         </div>
 
         <div className="form-outline mb-3">
@@ -41,11 +46,12 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <div className="form-text text-danger">
-            {passwordText && { passwordText }}
-          </div>
         </div>
-
+        {validate && (
+          <div className="alert alert-danger" role="alert">
+            The username or password is invalid!
+          </div>
+        )}
         <button
           type="submit"
           className="btn btn-outline-dark mb-3"

@@ -1,0 +1,30 @@
+name: Deploy to Google App Engine
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Google App Engine
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout # makes a mirror image of our repo which is further deployed
+        uses: actions/checkout@v2 #action provided by github to checkout
+      - name: Setup Node and Node Modules
+        uses: actions/setup-node@v2 # available on internet
+      - name: Building FrontEnd
+        run: |
+          npm install --force
+          npm run build
+      - name: "Deploy to App Engine"
+        uses: "google-github-actions/deploy-appengine@v0.2.0"
+        with:
+          deliverables: "app.yaml"
+          version: "v1"
+          project_id: ${{  secrets.PROJECT_ID  }}
+          credentials: ${{ secrets.SERVICE_ACCOUNT }}

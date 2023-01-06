@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import CommentsList from "./CommentsList";
-const NewsList = ({ newsList }) => {
+const NewsList = ({ newsList, title }) => {
   const colors = ["8c94f7", "fcb0b0", "8beef5", "7af58c", "f5ef7a"];
   const [selectedPostId, setSelectedPostId] = useState(null);
   function handleClick(id) {
@@ -9,7 +9,7 @@ const NewsList = ({ newsList }) => {
   }
   return (
     <div>
-      <h1>Recent Posts</h1>
+      <h1>{title}</h1>
       {newsList.map((news) => (
         <div className="card m-3" key={news.hash}>
           <div className="card-body text-start">
@@ -26,17 +26,26 @@ const NewsList = ({ newsList }) => {
                   {news.author}
                 </div>
                 <small className="text-secondary">
-                  Symbol: {news.ticker}
+                  Symbol:{" "}
+                  <Link to={`/posts/${news.ticker}`}>{news.ticker}</Link>
                 </small>
               </div>
             </h5>
             <p className="card-text">{news.content}</p>
             <div className="image-parent">
-              <img
-                src={news.image || "https://media.istockphoto.com/id/922962354/vector/no-image-available-sign.jpg?s=612x612&w=0&k=20&c=xbGzQiL_UIMFDUZte1U0end0p3E8iwocIOGt_swlywE="}
-                className="card-img-top img-fluid image-itself"
-                alt={news.hash}
-              />
+              {news.image &&
+              (
+                news.image.includes(".png") ||
+                news.image.includes(".jpg") ||
+                news.image.includes(".webp")) ? (
+                <img
+                  src={news.image}
+                  className="card-img-top img-fluid image-itself"
+                  alt={news.image}
+                />
+              ) : (
+                <a href={news.image} target="_blank" rel="noreferrer">Read More</a>
+              )}
             </div>
             <div>
               <small className="text-sm text-secondary">
