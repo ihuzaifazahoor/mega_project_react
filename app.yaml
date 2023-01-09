@@ -1,5 +1,5 @@
 runtime: nodejs18 # or another supported version
-service: react-reddit-huzaifa
+service: react-reddit-huzaifa-kl
 handlers:
   # Serve all static files with url ending with a file extension
   - url: /(.*\..+)$

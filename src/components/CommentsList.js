@@ -6,7 +6,7 @@ const CommentsList = ({ id }) => {
     error,
     isPending,
     data: comments,
-  } = useFetch("https://reddit-by-huzaifa-dot-cloud-work-314310.ew.r.appspot.com/comments?news_id=" + id);
+  } = useFetch("https://reddit-dot-cloud-work-314310.ew.r.appspot.com/comments?news_id=" + id);
   return (
     <div>
       {error && <div>{error}</div>}

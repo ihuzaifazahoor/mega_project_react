@@ -8,7 +8,7 @@ const Search = () => {
     error,
     isPending,
     data: newsList,
-  } = useFetch("http://127.0.0.1:8000/news?search=" + query);
+  } = useFetch("https://reddit-dot-cloud-work-314310.ew.r.appspot.com/news?search=" + query);
   console.log(newsList);
   return (
     <div className="container mt-5">
