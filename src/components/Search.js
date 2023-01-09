@@ -8,7 +8,7 @@ const Search = () => {
     error,
     isPending,
     data: newsList,
-  } = useFetch("https://reddit-dot-cloud-work-314310.ew.r.appspot.com/news?search=" + query);
+  } = useFetch("https://django-reddit-dot-cloud-work-314310.ew.r.appspot.com/news?search=" + query);
   console.log(newsList);
   return (
     <div className="container mt-5">

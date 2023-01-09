@@ -10,7 +10,7 @@ const Home = () => {
     error,
     isPending,
     data: newsList,
-  } = useFetch("https://reddit-dot-cloud-work-314310.ew.r.appspot.com/news?per_page=" + page);
+  } = useFetch("https://django-reddit-dot-cloud-work-314310.ew.r.appspot.com/news?per_page=" + page);
   return (
     <div className="container m-5">
       <div className="row justify-content-center">

@@ -28,7 +28,7 @@ export default function Signup() {
       last_name: LastName,
       username: username,
     };
-    fetch("https://reddit-dot-cloud-work-314310.ew.r.appspot.com/auth/signup", {
+    fetch("https://django-reddit-dot-cloud-work-314310.ew.r.appspot.com/auth/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

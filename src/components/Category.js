@@ -8,7 +8,7 @@ const Category = () => {
     error,
     isPending,
     data: newsList,
-  } = useFetch("https://reddit-dot-cloud-work-314310.ew.r.appspot.com/news?symbol=" + symbol);
+  } = useFetch("https://django-reddit-dot-cloud-work-314310.ew.r.appspot.com/news?symbol=" + symbol);
   console.log(newsList);
   return (
     <div className="container mt-5">
