@@ -9,7 +9,6 @@
 /coverage
 
 # production
-/data
 # misc
 .DS_Store
 .env.local
